@@ -15,6 +15,5 @@ namespace Entities.Concrate
         public string Description { get; set; }
         public DateTime DateAdded { get; set; }
         public bool IsMain { get; set; }
-        public City City { get; set; }
     }
 }
