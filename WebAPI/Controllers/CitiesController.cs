@@ -42,6 +42,8 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+
+
         [HttpPost("add")]
         public IActionResult Add(City city)
         {
@@ -77,5 +79,15 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
+        [HttpGet("getcitydetail")]
+        public IActionResult GetByCityDetail()
+        {
+            var result = _cityService.GetCityDetail();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

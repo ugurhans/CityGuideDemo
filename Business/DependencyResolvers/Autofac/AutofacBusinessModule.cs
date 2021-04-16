@@ -5,10 +5,8 @@ using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Business.Abstract;
 using Business.Concrate;
-
 using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
-
 using DataAccess.Abstract;
 using DataAccess.Concrate;
 using DataAccess.Concrate.EntityFramework;

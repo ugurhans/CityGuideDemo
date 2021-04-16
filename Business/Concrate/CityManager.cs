@@ -5,6 +5,7 @@ using Business.Abstract;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrate;
+using Entities.Dtos;
 
 namespace Business.Concrate
 {
@@ -43,6 +44,11 @@ namespace Business.Concrate
         {
             _cityDal.Update(city);
             return new SuccessResult();
+        }
+
+        public IDataResult<List<CityForListDTO>> GetCityDetail()
+        {
+            return new SuccessDataResult<List<CityForListDTO>>(_cityDal.GetCityDetails());
         }
 
 

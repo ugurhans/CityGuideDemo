@@ -11,5 +11,7 @@ namespace DataAccess.Abstract
     public interface ICityDal : IEntityRepository<City>
     {
         List<CityForListDTO> GetCityDetails(Expression<Func<CityForListDTO, bool>> filter = null);
+
+
     }
 }

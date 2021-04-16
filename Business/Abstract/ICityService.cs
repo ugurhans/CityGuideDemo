@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Entities.Concrate;
+using Entities.Dtos;
 
 namespace Business.Abstract
 {
@@ -13,6 +14,7 @@ namespace Business.Abstract
         IResult Add(City city);
         IResult Delete(City city);
         IResult Update(City city);
+        IDataResult<List<CityForListDTO>> GetCityDetail();
 
 
     }

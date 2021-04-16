@@ -8,6 +8,7 @@ using DataAccess.Abstract;
 using DataAccess.Concrate.EntityFramework;
 using Entities.Concrate;
 using Entities.Dtos;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrate
 {
@@ -18,8 +19,19 @@ namespace DataAccess.Concrate
             using (CityGuideContext context = new CityGuideContext())
             {
                 var result = from c in context.Cities
-                             join p in context.Photos on c.Include equals EXPR2
+                             join p in context.Photos
+                                 on c.Id equals p.CityId
+                             select new CityForListDTO
+                             {
+                                 Name = c.Name,
+                                 Id = c.Id,
+                                 Description = c.Description,
+                                 PhotoUrl = p.Url
+                             };
+
+                return filter == null ? result.ToList() : result.Where(filter).ToList();
             }
         }
+
     }
 }
