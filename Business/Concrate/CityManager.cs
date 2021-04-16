@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
+using Business.BussinessAspects.Autofac;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrate;
@@ -27,7 +28,7 @@ namespace Business.Concrate
         {
             return new SuccessDataResult<City>(_cityDal.Get(c => c.Id == cityId));
         }
-
+        [SecuredOperation("city.add,admin")]
         public IResult Add(City city)
         {
             _cityDal.Add(city);

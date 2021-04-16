@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.BussinessAspects.Autofac;
 using Entities.Concrate;
 
 namespace WebAPI.Controllers
@@ -43,7 +44,7 @@ namespace WebAPI.Controllers
         }
 
 
-
+        [SecuredOperation("city.add")]
         [HttpPost("add")]
         public IActionResult Add(City city)
         {

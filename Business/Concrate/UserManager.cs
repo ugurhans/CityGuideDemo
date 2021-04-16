@@ -2,38 +2,35 @@
 using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
+using Core.Entities.Concrate;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities.Concrate;
 
 namespace Business.Concrate
 {
     public class UserManager : IUserService
     {
-        public IDataResult<List<User>> GetAll()
+        IUserDal _userDal;
+
+        public UserManager(IUserDal userDal)
         {
-            throw new NotImplementedException();
+            _userDal = userDal;
         }
 
-        public IDataResult<User> GetById(int photoId)
+        public List<OperationClaim> GetClaims(User user)
         {
-            throw new NotImplementedException();
+            return _userDal.GetClaims(user);
         }
 
-        public IResult Add(User user)
+        public void Add(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Add(user);
         }
 
-        public IResult Delete(User user)
+        public User GetByMail(string email)
         {
-            throw new NotImplementedException();
+            return _userDal.Get(u => u.Email == email);
         }
-
-        public IResult Update(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-      
     }
 }
